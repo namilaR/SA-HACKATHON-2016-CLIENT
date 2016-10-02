@@ -24,6 +24,16 @@ angular
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
+      .when('/c/food-list', {
+        templateUrl: 'views/customer/food-list.html',
+        controller: 'CustomerFoodListCtrl',
+        controllerAs: 'customerFoodList'
+      })
+      .when('/c/my-orders', {
+        templateUrl: 'views/customer/orders.html',
+        controller: 'CustomerFoodListCtrl',
+        controllerAs: 'customerFoodList'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
@@ -32,4 +42,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }).constant('CONFIG', {
+  'APP_NAME': 'Acadamic Resource Management',
+  'APP_VERSION': '0.0.1',
+  'GOOGLE_ANALYTICS_ID': '',
+  'BASE_URL': 'http://localhost:8002/',
+  'SYSTEM_LANGUAGE': ''
+})
