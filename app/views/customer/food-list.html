@@ -1,0 +1,84 @@
+<div customer-header></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <select name="" class="form-control" ng-model="foodFilter"  ng-click="update()" id="">
+        <option value="">All</option>
+        <option value="">Drinks</option>
+        <option value="">All</option>
+      </select>
+    </div>
+    <div class="col-sm-5">
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-sm-2">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        My Orders
+      </button>
+    </div>
+
+
+  </div>
+  <div class="row">
+
+    <div class="col-sm-3" ng-repeat="item in items">
+      <div class="item-wapper">
+        <div class="i-image">
+          <img src="images/rolls.jpg" class="img img-responsive" alt="">
+        </div>
+        <div class="i-action">
+          <input type="number" ng-model="quantity" class="form-control" value="Order">
+          <input type="button" class="btn btn-success form-control" ng-click="addItem({i:item,qty:quantity})" value="Order">
+        </div>
+      </div>
+
+    </div>
+  {{addedItems}}
+
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- Table -->
+              <table class="table">
+
+                <th>
+                <td>#</td>
+                <td>Item Name</td>
+                <td>Quantity</td>
+                <td>Unit Price</td>
+                <td>Total</td>
+                </th>
+                <tr ng-repeat=" data in addedItems">
+                  <td>{{$index + 1}}</td>
+                  <td>{{data.i.item.name}}</td>
+                  <td>{{data.qty}}</td>
+                  <td>{{data.item.price}}</td>
+                  <td>{{data.item.price * data.qty}}</td>
+                </tr>
+
+              </table>
+
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div footer></div>
