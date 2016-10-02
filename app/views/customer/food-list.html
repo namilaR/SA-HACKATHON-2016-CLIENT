@@ -30,12 +30,12 @@
         </div>
         <div class="i-action">
           <input type="number" ng-model="quantity" class="form-control" value="Order">
-          <input type="button" class="btn btn-success form-control" ng-click="addItem({i:item,qty:quantity})" value="Order">
+          <input type="button" class="btn btn-success form-control" ng-click="addItem(item,quantity)" value="Order">
         </div>
       </div>
 
     </div>
-  {{addedItems}}
+  <!--{{addedItems}}-->
 
   </div>
   <!-- Modal -->
@@ -61,10 +61,10 @@
                 </th>
                 <tr ng-repeat=" data in addedItems">
                   <td>{{$index + 1}}</td>
-                  <td>{{data.i.item.name}}</td>
-                  <td>{{data.qty}}</td>
+                  <td>{{data.item.name}}</td>
+                  <td>{{data.q}}</td>
                   <td>{{data.item.price}}</td>
-                  <td>{{data.item.price * data.qty}}</td>
+                  <td>{{data.item.price * data.q}}</td>
                 </tr>
 
               </table>

@@ -27,8 +27,9 @@ angular.module('saHackathon2016ClientApp')
         }
       );
 
-      $scope.addItem = function (item) {
-        $scope.addedItems.push(item);
+      $scope.addItem = function (item,q) {
+        $scope.addedItems.push({item: item, q:q});
+        console.log( $scope.addedItems);
       };
 
 
